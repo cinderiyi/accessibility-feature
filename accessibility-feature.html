@@ -68,9 +68,24 @@
         </main>
 
         <script>
-            // TODO: Add JavaScript here to handle theme toggling.
-            // Hint: Use document.getElementById() to select the button.
-            // Check the article for step-by-step guidance!
+        // declare constants
+        const body = document.body;
+        const toggleButton = document.getElementById("theme-toggle-container");
+
+        // Load saved theme on page load
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+        body.classList.add("dark");
+        }
+
+        // Toggle theme on click
+      toggleButton.addEventListener("click", () => {
+        console.log('Button clicked!');
+        body.classList.toggle("dark");
+        const currentTheme = body.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", currentTheme);
+        console.log(`Theme set to: ${currentTheme}`);
+        });
         </script>
     </body>
 
